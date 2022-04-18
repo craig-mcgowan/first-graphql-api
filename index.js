@@ -3,9 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = 6969;
-const userData = require("./userData.json");
-const graphql = require('graphql');
-const {GraphQLObjectType, GraphQLSchema, GraphQLInt, GraphQLString, GraphQLList} = graphql;
+const schema = require('./Schemas/index');
 const { graphqlHTTP } = require('express-graphql')
 
 app.use(
