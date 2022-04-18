@@ -1,4 +1,4 @@
-const userData = require("./userData.json");
+const userData = require("../userData.json");
 const graphql = require("graphql");
 const {
   GraphQLObjectType,
@@ -7,6 +7,7 @@ const {
   GraphQLString,
   GraphQLList,
 } = graphql;
+
 const UserType = require("./TypeDefs/UserType");
 
 const RootQuery = new GraphQLObjectType({
@@ -47,12 +48,5 @@ const RootMutation = new GraphQLObjectType({
   },
 });
 
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-  })
-);
 
-const schema = new GraphQLSchema({ query: RootQuery, mutation: RootMutation });
+module.exports = new GraphQLSchema({ query: RootQuery, mutation: RootMutation });
